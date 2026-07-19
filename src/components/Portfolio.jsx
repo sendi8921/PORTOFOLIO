@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { SmoothCursor } from "./ui/SmoothCursor";
 import {
-  ArrowUpRight, MapPin, ArrowRight, ArrowDownRight, FileText
+  ArrowUpRight, MapPin, ArrowRight, ArrowDownRight, FileText, Mail
 } from "lucide-react";
 
-/* Ikon brand asli (Gmail, GitHub, LinkedIn, WhatsApp, Instagram) sebagai inline SVG,
-   supaya tidak butuh install library tambahan & pasti muncul di mana saja. */
 function BrandIcon({ path, size = 17, ...props }) {
   return (
     <svg
@@ -34,17 +33,15 @@ const BRAND_PATHS = {
     "M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077",
 };
 
-/* ------------------------------------------------------------------ */
-/*  DATA — edit semua bagian ini dengan data asli kamu                 */
-/* ------------------------------------------------------------------ */
-
 const PROFILE = {
-  name: "Sendi",
-  role: "Web Developer & ML Enthusiast",
+  name: "Sendi Pratama",
+  role: "Web Developer & Machine Learning",
   photo: "/hero-photo.jpg",
+  tagline:
+    "Mengubah ide dan data menjadi produk web serta model machine learning yang rapi, cepat, dan berdampak.",
   bio:
     "Didorong rasa penasaran terhadap data dan sistem, saya membangun aplikasi web dan model machine learning yang sederhana, fungsional, dan mudah dipahami. Sebagai mahasiswa, saya terus belajar dan mengeksplorasi ide baru.",
-  location: "Banjarmasin, Indonesia",
+  location: "Banjarbaru, Indonesia",
   email: "sendipratama302@gmail.com",
 };
 
@@ -83,9 +80,33 @@ const SOCIALS = [
   { icon: "instagram", href: "https://instagram.com/", label: "Instagram" },
 ];
 
-/* ------------------------------------------------------------------ */
-/*  UTILITIES                                                          */
-/* ------------------------------------------------------------------ */
+const SKILL_GROUPS = [
+  {
+    num: "01",
+    title: "Design & UI/UX",
+    skills: ["UI/UX Design", "Wireframing", "Prototyping", "User Research"],
+  },
+  {
+    num: "02",
+    title: "Front-End",
+    skills: ["HTML5", "CSS"],
+  },
+  {
+    num: "03",
+    title: "Machine Learning & Data",
+    skills: ["Python", "Scikit-learn", "Streamlit"],
+  },
+  {
+    num: "04",
+    title: "Back-End & Database",
+    skills: ["Laravel (PHP)", "MySQL", "PostgreSQL"],
+  },
+  {
+    num: "05",
+    title: "Tools & Workflow",
+    skills: ["Git", "Figma"],
+  },
+];
 
 function useReveal() {
   const ref = useRef(null);
@@ -123,16 +144,184 @@ function Reveal({ children, className = "", delay = 0 }) {
   );
 }
 
-/* ------------------------------------------------------------------ */
-/*  SOCIAL DOCK — pengganti navbar, dengan RGB glow saat hover          */
-/* ------------------------------------------------------------------ */
+function SkillsList({ groups }) {
+  return (
+    <div>
+      <span className="inline-block text-[11px] font-semibold tracking-[0.2em] uppercase text-black/40 mb-6">
+        Keahlian
+      </span>
+      <div className="space-y-8">
+      {groups.map((g, i) => (
+        <Reveal key={g.num} delay={i * 60}>
+          <div className="flex items-start gap-4">
+            <span className="font-display text-3xl font-semibold text-lime-300 shrink-0 tabular-nums leading-none">
+              {g.num}
+            </span>
+            <div className="flex-1 min-w-0">
+              <h3 className="font-display text-xl font-semibold">{g.title}</h3>
+              <div className="flex flex-wrap gap-2 mt-3">
+                {g.skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="text-xs font-medium px-3 py-1.5 rounded-full border border-black/15 text-black/60"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </Reveal>
+      ))}
+      </div>
+    </div>
+  );
+}
+
+function PinnedSkillsStack({ groups }) {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const itemRefs = useRef([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const idx = Number(entry.target.dataset.index);
+            setActiveIndex(idx);
+          }
+        });
+      },
+      {
+        rootMargin: "-45% 0px -45% 0px",
+        threshold: 0,
+      }
+    );
+
+    itemRefs.current.forEach((el) => {
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, [groups.length]);
+
+  const active = groups[activeIndex];
+
+  return (
+    <div className="relative">
+      <div className="sticky top-24">
+        <span className="inline-block text-[11px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-black/40 mb-6">
+          Keahlian
+        </span>
+        <div className="flex items-start gap-4 sm:gap-8">
+          <div
+            className="relative shrink-0 overflow-hidden font-display text-5xl sm:text-8xl font-semibold text-lime-300 tabular-nums"
+            style={{ height: "1em", lineHeight: 1 }}
+            aria-hidden="true"
+          >
+            <AnimatePresence mode="popLayout">
+              <motion.span
+                key={active.num}
+                className="block"
+                style={{ height: "1em", lineHeight: 1 }}
+                initial={{ y: "0.6em", opacity: 0 }}
+                animate={{ y: "0em", opacity: 1 }}
+                exit={{ y: "-0.6em", opacity: 0 }}
+                transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+              >
+                {active.num}
+              </motion.span>
+            </AnimatePresence>
+          </div>
+
+          <div className="flex-1 min-w-0 pt-1 sm:pt-2">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={active.num}
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -24 }}
+                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <h3 className="font-display text-xl sm:text-3xl md:text-4xl font-semibold">
+                  {active.title}
+                </h3>
+                <div className="flex flex-wrap gap-2 mt-4">
+                  {active.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="text-xs sm:text-sm font-medium px-3 py-1.5 rounded-full border border-black/15 text-black/60"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </div>
+
+        <div className="flex gap-2 mt-10 sm:mt-14">
+          {groups.map((g, i) => (
+            <span
+              key={g.num}
+              className={`h-1.5 rounded-full transition-all duration-300 ${
+                i === activeIndex ? "w-8 bg-black" : "w-1.5 bg-black/15"
+              }`}
+            />
+          ))}
+        </div>
+      </div>
+
+      <div aria-hidden="true">
+        {groups.map((g, i) => (
+          <div
+            key={g.num}
+            data-index={i}
+            ref={(el) => (itemRefs.current[i] = el)}
+            className="h-[55vh]"
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+const dockGlowVariants = {
+  hidden: { opacity: 0, transition: { duration: 0.9, ease: "easeInOut" } },
+  visible: { opacity: 1, transition: { duration: 0.25, ease: "easeOut" } },
+};
+const dockRingVariants = {
+  hidden: { opacity: 0, transition: { duration: 0.9, ease: "easeInOut" } },
+  visible: { opacity: 1, transition: { duration: 0.25, ease: "easeOut" } },
+};
 
 function SocialDock() {
   const [hovered, setHovered] = useState(false);
+  const leaveTimer = useRef(null);
+
+  const handleEnter = () => {
+    if (leaveTimer.current) {
+      clearTimeout(leaveTimer.current);
+      leaveTimer.current = null;
+    }
+    setHovered(true);
+  };
+
+  const handleLeave = () => {
+    leaveTimer.current = setTimeout(() => {
+      setHovered(false);
+    }, 200);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (leaveTimer.current) clearTimeout(leaveTimer.current);
+    };
+  }, []);
 
   return (
-    <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20">
-      {/* --dock-angle digeser terus lewat CSS animation, dipakai buat muter posisi warna di conic-gradient */}
+    <div className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 z-20">
       <style>{`
         @property --dock-angle {
           syntax: '<angle>';
@@ -163,40 +352,37 @@ function SocialDock() {
 
       <div
         className="relative rounded-full"
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
+        onMouseEnter={handleEnter}
+        onMouseLeave={handleLeave}
       >
-        {/* GLOW TERANG DI BELAKANG — tetap pakai palet warna yang sama, tapi blur kecil & nempel dekat dock (tidak menyebar jauh) */}
         <AnimatePresence>
           {hovered && (
             <motion.div
               key="chasing-glow"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
-              className="dock-chasing-bg absolute -inset-1.5 rounded-full blur-[25px] pointer-events-none"
+              variants={dockGlowVariants}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              className="dock-chasing-bg absolute -inset-1.5 rounded-full blur-[20px] pointer-events-none"
             />
           )}
         </AnimatePresence>
 
-        {/* CINCIN GARIS TIPIS — warna berjalan mengelilingi tepi dock, tajam & jelas di atas glow */}
         <AnimatePresence>
           {hovered && (
             <motion.div
               key="chasing-ring"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
+              variants={dockRingVariants}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
               className="dock-chasing-bg dock-chasing-ring absolute -inset-[0px] rounded-full pointer-events-none"
               style={{ padding: "2px" }}
             />
           )}
         </AnimatePresence>
 
-        {/* DOCK ASLI — di atas cincin & glow */}
-        <div className="relative flex items-center gap-1 bg-black/85 backdrop-blur-md rounded-full px-2.5 py-2 shadow-xl">
+        <div className="relative flex items-center gap-0.5 sm:gap-1 bg-black/85 backdrop-blur-md rounded-full px-1.5 sm:px-2.5 py-1.5 sm:py-2 shadow-xl">
           {SOCIALS.map(({ icon, href, label }) => (
             <a
               key={label}
@@ -204,9 +390,9 @@ function SocialDock() {
               target={href.startsWith("http") ? "_blank" : undefined}
               rel="noreferrer"
               aria-label={label}
-              className="h-10 w-10 rounded-full flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 transition-colors"
+              className="h-9 w-9 sm:h-10 sm:w-10 rounded-full flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 transition-colors"
             >
-              <BrandIcon path={BRAND_PATHS[icon]} size={17} />
+              <BrandIcon path={BRAND_PATHS[icon]} size={16} />
             </a>
           ))}
         </div>
@@ -215,21 +401,41 @@ function SocialDock() {
   );
 }
 
-/* ------------------------------------------------------------------ */
-/*  MAIN COMPONENT                                                     */
-/* ------------------------------------------------------------------ */
-
 export default function PortfolioMinimal() {
   return (
-    <div className="min-h-screen w-full bg-[#F5F3EF] text-[#141414] font-sans">
+    <div
+      className="min-h-screen w-full overflow-x-clip bg-[#F5F3EF] text-[#141414] font-sans"
+      style={{ overflowX: "clip" }}
+    >
+      <SmoothCursor />
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+        @font-face {
+          font-family: 'Cantry';
+          font-style: normal;
+          font-weight: 100 900;
+          font-display: swap;
+          src: url('/fonts/Cantry.otf') format('opentype'),
+               url('/fonts/Cantry.ttf') format('truetype');
+        }
+
         .font-sans { font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif; }
+        .font-display { font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif; letter-spacing: -0.01em; }
+        .italic-display { font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif; font-style: italic; }
+        .font-cantry { font-family: 'Cantry', 'Manrope', ui-sans-serif, system-ui, sans-serif; letter-spacing: -0.015em; }
         html { scroll-behavior: smooth; }
+        @media (min-width: 768px) {
+          * { cursor: none !important; }
+          input, textarea, select { cursor: text !important; }
+        }
       `}</style>
 
-      {/* ---------------- HERO — full-bleed grayscale, headline besar ---------------- */}
-      <section id="top" className="relative w-full min-h-[480px] max-h-[900px] overflow-hidden bg-[#8B8B87]" style={{ height: "100dvh" }}>
+      <section
+        id="top"
+        className="relative w-full overflow-hidden bg-[#8B8B87]"
+        style={{ height: "100svh", minHeight: "560px", maxHeight: "900px" }}
+      >
         <SocialDock />
         <img
           src={PROFILE.photo}
@@ -239,44 +445,69 @@ export default function PortfolioMinimal() {
         <div className="absolute inset-0 bg-black/25" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/10 to-black/45" />
 
-        {/* label kiri atas */}
-        <div className="absolute top-5 left-5 sm:top-8 sm:left-8 text-[11px] sm:text-xs font-medium text-white/90 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
-          © Portofolio {PROFILE.name}
-        </div>
-
-        {/* tagline kanan atas */}
-        <div className="absolute top-5 right-5 sm:top-8 sm:right-8 max-w-[220px] sm:max-w-xs text-right">
-          <p className="text-[11px] sm:text-sm text-white/95 leading-relaxed drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
-            {PROFILE.bio}
+        <div className="absolute top-4 right-4 sm:top-8 sm:right-8 text-right max-w-[45%] sm:max-w-none">
+          <p className="text-[10px] sm:text-sm font-medium tracking-[0.14em] sm:tracking-[0.18em] uppercase text-white/90 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
+            TECH ENTHUSIAST
           </p>
         </div>
 
-        {/* label role tengah-kanan */}
-        <div className="absolute top-1/2 right-5 sm:right-10 -translate-y-1/2 text-right">
-          <p className="text-white text-lg sm:text-2xl font-semibold leading-tight drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
-            Web Developer <br /> &amp; ML Enthusiast
+        <div className="absolute bottom-24 left-5 right-5 sm:bottom-40 sm:left-10 sm:right-auto sm:max-w-lg">
+          <p className="font-cantry text-white font-semibold leading-[1.15] text-xl xs:text-2xl sm:text-3xl md:text-4xl drop-shadow-[0_2px_10px_rgba(0,0,0,0.85)] break-words">
+            Saya Sendi Pratama merancang dan{" "}
+            <span className="font-medium">membangun web</span> dari{" "}
+            Banjarbaru, Indonesia.
           </p>
-          <ArrowDownRight size={22} className="ml-auto mt-3 text-white/90 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]" />
+          <p className="font-cantry mt-3 sm:mt-5 text-white/90 text-xs sm:text-sm leading-relaxed max-w-sm drop-shadow-[0_1px_6px_rgba(0,0,0,0.85)]">
+            Ngoding{" "}
+            <span className="font-medium text-white">aplikasi web</span> &amp;{" "}
+            <span className="font-medium text-white">machine learning</span>.
+            Kenali saya <span className="font-medium text-white">lebih dekat</span>.
+          </p>
         </div>
       </section>
 
-      {/* ---------------- BIO SINGKAT ---------------- */}
-      <section className="max-w-5xl mx-auto px-5 sm:px-8 pt-16 sm:pt-20 pb-10">
-        <Reveal className="grid md:grid-cols-[1fr_auto] gap-6 items-end">
-          <p className="text-black/60 text-base sm:text-lg leading-relaxed max-w-xl">
-            {PROFILE.bio}
-          </p>
-          <div className="flex items-center gap-2 text-sm font-medium text-black/50 whitespace-nowrap">
-            <MapPin size={15} /> {PROFILE.location}
+      <section className="max-w-6xl mx-auto px-5 sm:px-8 pt-16 sm:pt-24 pb-20">
+        <div className="grid lg:grid-cols-[1fr_1.3fr] gap-10 lg:gap-16 items-start">
+          <Reveal className="lg:sticky lg:top-24 lg:self-start">
+            <span className="inline-block text-[11px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-black/40 mb-4">
+              Profil
+            </span>
+            <h2 className="font-display text-4xl sm:text-5xl font-semibold leading-[1.05]">
+              {PROFILE.name}
+            </h2>
+            <p className="mt-3 inline-flex items-center gap-2 text-sm font-semibold px-3 py-1.5 rounded-full bg-lime-300 text-black">
+              Full-Stack Developer &amp; UI/UX Designer
+            </p>
+
+            <p className="text-black/60 text-base leading-relaxed mt-6 max-w-md">
+              Menjembatani{" "}
+              <span className="text-black font-medium">keindahan desain visual</span>{" "}
+              dengan{" "}
+              <span className="text-black font-medium">fungsionalitas kode</span>.
+              Merancang antarmuka yang intuitif, lalu mengimplementasikannya nyata
+              ke sistem web berbasis Laravel maupun model machine learning berbasis
+              Python — dengan fokus pada kode efisien, database optimal, dan
+              pengalaman pengguna yang mulus dari hulu ke hilir.
+            </p>
+
+            <div className="flex items-center gap-2 text-sm font-medium text-black/50 mt-6">
+              <MapPin size={15} /> {PROFILE.location}
+            </div>
+          </Reveal>
+
+          <div className="lg:hidden">
+            <SkillsList groups={SKILL_GROUPS} />
           </div>
-        </Reveal>
+          <div className="hidden lg:block">
+            <PinnedSkillsStack groups={SKILL_GROUPS} />
+          </div>
+        </div>
       </section>
 
-      {/* ---------------- IMPRESSIVE WORKS ---------------- */}
       <section id="work" className="max-w-5xl mx-auto px-5 sm:px-8 py-10 sm:py-14">
         <Reveal>
-          <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight mb-8">
-            Karya Pilihan
+          <h2 className="font-display text-2xl sm:text-4xl font-semibold mb-6 sm:mb-8">
+            Karya <span className="italic-display font-normal">Pilihan</span>
           </h2>
         </Reveal>
         <div className="grid sm:grid-cols-2 gap-5 sm:gap-6">
@@ -293,8 +524,8 @@ export default function PortfolioMinimal() {
                     <ArrowUpRight size={16} />
                   </div>
                 </div>
-                <div className="mt-3 flex items-center justify-between">
-                  <h3 className="font-semibold text-base">{w.title}</h3>
+                <div className="mt-3 flex items-center justify-between gap-2">
+                  <h3 className="font-display font-medium text-base sm:text-lg">{w.title}</h3>
                 </div>
                 <p className="text-sm text-black/45 mt-0.5">{w.tag}</p>
               </a>
@@ -303,13 +534,12 @@ export default function PortfolioMinimal() {
         </div>
       </section>
 
-      {/* ---------------- ABOUT (kecil) ---------------- */}
       <section id="about" className="max-w-5xl mx-auto px-5 sm:px-8 py-10 sm:py-14 border-t border-black/5">
-        <Reveal className="grid md:grid-cols-2 gap-8">
-          <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
-            Tentang Saya
+        <Reveal className="grid md:grid-cols-2 gap-6 sm:gap-8">
+          <h2 className="font-display text-2xl sm:text-4xl font-semibold">
+            Tentang <span className="italic-display font-normal">Saya</span>
           </h2>
-          <div className="text-black/60 leading-relaxed space-y-4">
+          <div className="text-black/60 leading-relaxed space-y-4 text-sm sm:text-base">
             <p>
               Mahasiswa Teknik Informatika di UNISKA Banjarmasin, sedang
               menyelesaikan skripsi tentang sistem monitoring kualitas air
@@ -324,28 +554,25 @@ export default function PortfolioMinimal() {
         </Reveal>
       </section>
 
-      {/* ---------------- CONTACT — ala referensi (kertas terbang) ---------------- */}
       <section
         id="contact"
         className="relative w-full mt-4 mb-0 overflow-hidden bg-[#D9DCE6]"
         style={{
-          clipPath:
-            "polygon(0 0, 90% 0, 100% 6%, 100% 100%, 0 100%)",
+          clipPath: "polygon(0 0, 90% 0, 100% 6%, 100% 100%, 0 100%)",
         }}
       >
-        <div className="relative px-6 sm:px-10 pt-8 sm:pt-10 pb-16 sm:pb-20 min-h-[420px] sm:min-h-[480px]">
-          {/* teks kecil kiri atas */}
-          <Reveal className="max-w-[200px] sm:max-w-[240px]">
+        <div className="relative px-5 sm:px-10 pt-8 sm:pt-10 pb-6 sm:pb-8 min-h-[420px] sm:min-h-[440px] flex flex-col">
+          <Reveal className="max-w-[180px] sm:max-w-[240px]">
             <p className="text-sm sm:text-base font-semibold leading-snug text-black/80">
               Ini akhir dari halaman, tapi awal dari kolaborasi kita.
             </p>
           </Reveal>
 
-          {/* garis titik-titik + pesawat kertas — presisi mengikuti arah ujung garis */}
           <svg
             viewBox="0 0 600 260"
-            className="absolute top-6 left-0 w-full h-[55%] sm:h-[60%] pointer-events-none"
+            className="absolute top-6 left-0 w-full h-[45%] sm:h-[60%] pointer-events-none"
             fill="none"
+            preserveAspectRatio="xMidYMid meet"
           >
             <path
               d="M 20 205 C 140 250, 240 235, 305 165 C 345 122, 380 95, 420 90 L 465 65"
@@ -355,8 +582,6 @@ export default function PortfolioMinimal() {
               strokeLinecap="round"
               className="draw-path"
             />
-            {/* pesawat kertas custom, ditempatkan & dirotasi tepat di ujung garis (465,65).
-                arah segmen terakhir: dx=45, dy=-25 → sudut ≈ -29.05° */}
             <g transform="translate(465,65) rotate(-29.05)">
               <polygon points="13,0 -9,-6.5 -3.5,0 -9,6.5" fill="#141414" />
             </g>
@@ -374,23 +599,30 @@ export default function PortfolioMinimal() {
             }
           `}</style>
 
-          {/* headline besar bawah */}
-          <Reveal delay={100} className="absolute bottom-14 sm:bottom-16 left-6 right-6 sm:left-10 sm:right-10">
-            <h2 className="font-extrabold tracking-tight leading-[0.9] text-[13vw] sm:text-6xl md:text-7xl">
-              Yuk, ngobrol
+          <div className="flex-1" />
+
+          <Reveal delay={100} className="mb-6 sm:mb-10">
+            <h2
+              className="font-display font-semibold leading-[0.95] break-words"
+              style={{ fontSize: "clamp(2.25rem, 12vw, 4.5rem)" }}
+            >
+              Yuk, <span className="italic-display font-normal">ngobrol</span>
             </h2>
           </Reveal>
 
-          {/* copyright + tombol email pill */}
-          <div className="absolute bottom-5 left-6 right-6 sm:left-10 sm:right-10 flex items-center justify-between flex-wrap gap-3">
-            <p className="text-[11px] sm:text-xs text-black/50">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            <p className="text-[11px] sm:text-xs text-black/50 order-2 sm:order-1">
               © {new Date().getFullYear()} — {PROFILE.name.toUpperCase()}
             </p>
             <a
               href={`mailto:${PROFILE.email}`}
-              className="inline-flex items-center gap-1.5 bg-lime-300 text-black text-[11px] sm:text-xs font-bold normal-case tracking-wide px-3 py-1.5 rounded-full border border-black/10 hover:bg-lime-200 transition-colors"
+              className="order-1 sm:order-2 inline-flex items-center gap-1.5 bg-lime-300 text-black text-[11px] sm:text-xs font-bold normal-case tracking-wide px-3 py-1.5 rounded-full border border-black/10 hover:bg-lime-200 transition-colors max-w-full"
             >
-              EMAIL: {PROFILE.email}
+              <Mail size={12} className="shrink-0" />
+              <span className="truncate">
+                <span className="hidden sm:inline">EMAIL: </span>
+                {PROFILE.email}
+              </span>
             </a>
           </div>
         </div>
