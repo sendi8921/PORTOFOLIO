@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SmoothCursor } from "./ui/SmoothCursor";
 import {
-  ArrowUpRight, MapPin, ArrowRight, ArrowDownRight, FileText, Mail
+  ArrowUpRight, MapPin, Mail
 } from "lucide-react";
 
 function BrandIcon({ path, size = 17, ...props }) {
@@ -472,21 +472,6 @@ export default function PortfolioMinimal() {
             <span className="font-medium text-white">machine learning</span>.
             Kenali saya <span className="font-medium text-white">lebih dekat</span>.
           </p>
-
-          <div className="mt-6 flex flex-wrap items-center gap-3">
-            <a
-              href="#work"
-              className="inline-flex items-center gap-1.5 rounded-full bg-lime-300 text-black text-sm font-bold px-5 py-2.5 hover:bg-lime-200 transition-colors"
-            >
-              Lihat Karya <ArrowRight size={16} className="shrink-0" />
-            </a>
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-1.5 rounded-full border border-white/50 text-white text-sm font-semibold px-5 py-2.5 backdrop-blur-sm hover:bg-white/10 transition-colors"
-            >
-              Kontak
-            </a>
-          </div>
         </div>
       </section>
 
