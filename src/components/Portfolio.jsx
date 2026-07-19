@@ -64,7 +64,7 @@ const PROJECTS = [
     tag: "Product Design · Figma",
     description:
       "Rancangan antarmuka aplikasi & website yang dipublikasikan sebagai prototype Figma, jadi siapa pun bisa membuka dan mencobanya langsung.",
-    image: "/designs/design-1.jpg",
+    image: "/projects/figma.jpg",
     href: FIGMA_URL,
     cta: "Buka di Figma",
   },
@@ -518,7 +518,7 @@ export default function PortfolioMinimal() {
         </div>
       </section>
 
-      <section id="portofolio" className="max-w-5xl mx-auto px-5 sm:px-8 py-10 sm:py-14">
+      <section id="portofolio" className="max-w-6xl mx-auto px-5 sm:px-8 py-10 sm:py-14">
         <Reveal>
           <span className="inline-block text-[11px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-black/40 mb-3">
             Portofolio
