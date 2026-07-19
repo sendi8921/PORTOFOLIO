@@ -452,15 +452,15 @@ export default function PortfolioMinimal() {
           </p>
         </div>
 
-        <div className="absolute bottom-24 left-5 right-5 sm:bottom-40 sm:left-10 sm:right-auto sm:max-w-lg">
-          <div className="mb-4 sm:mb-5 flex items-center gap-2.5">
+        <div className="absolute bottom-20 left-5 right-5 sm:bottom-24 sm:left-10 sm:right-auto sm:max-w-xl">
+          <div className="mb-3 sm:mb-4 flex items-center gap-2.5">
             <span className="h-1.5 w-1.5 rounded-full bg-lime-300 shadow-[0_0_10px_2px_rgba(190,242,100,0.7)]" />
             <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-[0.16em] sm:tracking-[0.18em] text-white/85 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
               Web Developer &amp; Machine Learning
             </span>
           </div>
 
-          <h1 className="font-cantry text-white font-semibold leading-[1.12] text-[1.7rem] xs:text-3xl sm:text-4xl md:text-5xl drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)] break-words">
+          <h1 className="font-cantry text-white font-semibold leading-[1.1] text-2xl sm:text-3xl md:text-4xl drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)] break-words">
             Saya Sendi Pratama merancang dan{" "}
             <span className="text-lime-300">membangun web</span> dari{" "}
             Banjarbaru, Indonesia.
