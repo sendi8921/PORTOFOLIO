@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SmoothCursor } from "./ui/SmoothCursor";
 import {
-  ArrowUpRight, MapPin, ArrowRight, ArrowDownRight, FileText, Mail
+  ArrowUpRight, MapPin, Mail
 } from "lucide-react";
 
 function BrandIcon({ path, size = 17, ...props }) {
@@ -443,7 +443,8 @@ export default function PortfolioMinimal() {
           className="absolute inset-0 w-full h-full object-cover object-center grayscale opacity-90"
         />
         <div className="absolute inset-0 bg-black/25" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/10 to-black/45" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/10 to-black/50" />
+        <div className="absolute inset-x-0 bottom-0 h-[72%] bg-gradient-to-t from-black/85 via-black/45 to-transparent" />
 
         <div className="absolute top-4 right-4 sm:top-8 sm:right-8 text-right max-w-[45%] sm:max-w-none">
           <p className="text-[10px] sm:text-sm font-medium tracking-[0.14em] sm:tracking-[0.18em] uppercase text-white/90 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
@@ -451,13 +452,21 @@ export default function PortfolioMinimal() {
           </p>
         </div>
 
-        <div className="absolute bottom-24 left-5 right-5 sm:bottom-40 sm:left-10 sm:right-auto sm:max-w-lg">
-          <p className="font-cantry text-white font-semibold leading-[1.15] text-xl xs:text-2xl sm:text-3xl md:text-4xl drop-shadow-[0_2px_10px_rgba(0,0,0,0.85)] break-words">
+        <div className="absolute bottom-25 left-5 right-5 sm:bottom-50 sm:left-10 sm:right-auto sm:max-w-xl">
+          <div className="mb-3 sm:mb-4 flex items-center gap-2.5">
+            <span className="h-1.5 w-1.5 rounded-full bg-lime-300 shadow-[0_0_10px_2px_rgba(190,242,100,0.7)]" />
+            <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-[0.16em] sm:tracking-[0.18em] text-white/85 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
+              Web Developer &amp; Machine Learning
+            </span>
+          </div>
+
+          <h1 className="font-cantry text-white font-semibold leading-[1.1] text-2xl sm:text-3xl md:text-4xl drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)] break-words">
             Saya Sendi Pratama merancang dan{" "}
-            <span className="font-medium">membangun web</span> dari{" "}
+            <span className="text-lime-300">membangun web</span> dari{" "}
             Banjarbaru, Indonesia.
-          </p>
-          <p className="font-cantry mt-3 sm:mt-5 text-white/90 text-xs sm:text-sm leading-relaxed max-w-sm drop-shadow-[0_1px_6px_rgba(0,0,0,0.85)]">
+          </h1>
+
+          <p className="font-cantry mt-4 sm:mt-5 text-white/90 text-sm leading-relaxed max-w-sm drop-shadow-[0_1px_6px_rgba(0,0,0,0.9)]">
             Ngoding{" "}
             <span className="font-medium text-white">aplikasi web</span> &amp;{" "}
             <span className="font-medium text-white">machine learning</span>.
