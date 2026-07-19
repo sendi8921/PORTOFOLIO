@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SmoothCursor } from "./ui/SmoothCursor";
+import { Carousel } from "./ui/Carousel";
 import {
   ArrowUpRight, MapPin, Mail
 } from "lucide-react";
@@ -45,31 +46,35 @@ const PROFILE = {
   email: "sendipratama302@gmail.com",
 };
 
-const WORKS = [
+// Ganti dengan link prototype/file Figma yang sudah dipublikasikan (Share → Anyone with the link).
+const FIGMA_URL = "https://www.figma.com/@sendipratama";
+
+const PROJECTS = [
   {
-    title: "Sistem Monitoring Kualitas Air",
-    tag: "Web App · Laravel",
-    image:
-      "https://images.unsplash.com/photo-1621504450181-5d356f61d307?auto=format&fit=crop&w=900&q=80",
+    title: "AL-FORIVER · Monitoring Kualitas Air",
+    tag: "Web App · Laravel · Live",
+    description:
+      "Sistem monitoring kualitas air laut & sungai untuk Dinas Lingkungan Hidup Provinsi Kalimantan Selatan, sudah live dan bisa diakses publik.",
+    image: "/projects/alforiver.jpg",
+    href: "https://alforiver.kalselprov.go.id/",
+    cta: "Kunjungi situs",
   },
   {
-    title: "Klasifikasi & Clustering Kualitas Air",
-    tag: "Machine Learning · Streamlit",
-    image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80",
+    title: "UI/UX Design · Figma",
+    tag: "Product Design · Figma",
+    description:
+      "Rancangan antarmuka aplikasi & website yang dipublikasikan sebagai prototype Figma, jadi siapa pun bisa membuka dan mencobanya langsung.",
+    image: "/designs/design-1.jpg",
+    href: FIGMA_URL,
+    cta: "Buka di Figma",
   },
-  {
-    title: "DNA Phenotyping Visualizer",
-    tag: "Experiment · Three.js",
-    image:
-      "https://images.unsplash.com/photo-1628595351029-c2bf17511435?auto=format&fit=crop&w=900&q=80",
-  },
-  {
-    title: "Asisten AI ala Jarvis",
-    tag: "Prototype · Python",
-    image:
-      "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=900&q=80",
-  },
+];
+
+const DESIGN_SHOWCASE = [
+  { src: "/designs/design-1.jpg", title: "Wellness App UI Kit", tag: "Mobile App" },
+  { src: "/designs/design-3.jpg", title: "Water Quality Monitoring App", tag: "Mobile App" },
+  { src: "/designs/design-2.jpg", title: "SaaS Landing Page", tag: "Web Design" },
+  { src: "/designs/design-4.jpg", title: "Design System", tag: "Branding & UI" },
 ];
 
 const SOCIALS = [
@@ -513,34 +518,75 @@ export default function PortfolioMinimal() {
         </div>
       </section>
 
-      <section id="work" className="max-w-5xl mx-auto px-5 sm:px-8 py-10 sm:py-14">
+      <section id="portofolio" className="max-w-5xl mx-auto px-5 sm:px-8 py-10 sm:py-14">
         <Reveal>
-          <h2 className="font-display text-2xl sm:text-4xl font-semibold mb-6 sm:mb-8">
-            Karya <span className="italic-display font-normal">Pilihan</span>
+          <span className="inline-block text-[11px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-black/40 mb-3">
+            Portofolio
+          </span>
+          <h2 className="font-display text-2xl sm:text-4xl font-semibold">
+            Project <span className="italic-display font-normal">terpilih</span>
           </h2>
+          <p className="text-black/55 text-sm sm:text-base mt-3 max-w-lg">
+            Beberapa web yang saya bangun dan rancang — dari aplikasi live sampai
+            desain UI/UX yang bisa langsung dibuka dan dicoba siapa saja.
+          </p>
         </Reveal>
-        <div className="grid sm:grid-cols-2 gap-5 sm:gap-6">
-          {WORKS.map((w, i) => (
-            <Reveal key={w.title} delay={i * 90}>
-              <a href="#" className="group block">
-                <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
+
+        <div className="grid sm:grid-cols-2 gap-5 sm:gap-6 mt-8">
+          {PROJECTS.map((p, i) => (
+            <Reveal key={p.title} delay={i * 90}>
+              <a
+                href={p.href}
+                target="_blank"
+                rel="noreferrer"
+                className="group block"
+              >
+                <div className="relative rounded-2xl overflow-hidden aspect-[4/3] bg-black/5">
                   <img
-                    src={w.image}
-                    alt={w.title}
+                    src={p.image}
+                    alt={p.title}
                     className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500"
                   />
                   <div className="absolute top-3 right-3 h-9 w-9 rounded-full bg-white/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                     <ArrowUpRight size={16} />
                   </div>
                 </div>
-                <div className="mt-3 flex items-center justify-between gap-2">
-                  <h3 className="font-display font-medium text-base sm:text-lg">{w.title}</h3>
+                <div className="mt-3 flex items-center justify-between gap-3">
+                  <h3 className="font-display font-medium text-base sm:text-lg">{p.title}</h3>
+                  <span className="shrink-0 inline-flex items-center gap-1 text-xs font-semibold text-black/60 group-hover:text-black transition-colors">
+                    {p.cta} <ArrowUpRight size={13} />
+                  </span>
                 </div>
-                <p className="text-sm text-black/45 mt-0.5">{w.tag}</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-lime-500 mt-1">
+                  {p.tag}
+                </p>
+                <p className="text-sm text-black/50 mt-2 leading-relaxed">{p.description}</p>
               </a>
             </Reveal>
           ))}
         </div>
+
+        <Reveal className="mt-14 sm:mt-20">
+          <div className="flex items-end justify-between gap-4 mb-5 sm:mb-6">
+            <div>
+              <h3 className="font-display text-xl sm:text-2xl font-semibold">
+                Galeri <span className="italic-display font-normal">design</span>
+              </h3>
+              <p className="text-sm text-black/50 mt-1">
+                Geser untuk melihat karya desain lainnya.
+              </p>
+            </div>
+            <a
+              href={FIGMA_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full border border-black/15 text-black/70 hover:border-black/40 hover:text-black transition-colors"
+            >
+              Lihat semua di Figma <ArrowUpRight size={13} />
+            </a>
+          </div>
+          <Carousel items={DESIGN_SHOWCASE} />
+        </Reveal>
       </section>
 
       <section id="about" className="max-w-5xl mx-auto px-5 sm:px-8 py-10 sm:py-14 border-t border-black/5">
