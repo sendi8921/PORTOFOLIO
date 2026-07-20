@@ -2,8 +2,9 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SmoothCursor } from "./ui/SmoothCursor";
 import { Carousel } from "./ui/Carousel";
+import { ProjectsGrid } from "./ui/ProjectsGrid";
 import {
-  ArrowUpRight, MapPin, Mail
+  MapPin, Mail
 } from "lucide-react";
 
 function BrandIcon({ path, size = 17, ...props }) {
@@ -52,7 +53,8 @@ const FIGMA_URL = "https://www.figma.com/@sendipratama";
 const PROJECTS = [
   {
     title: "AL-FORIVER · Monitoring Kualitas Air",
-    tag: "Web App · Laravel · Live",
+    category: "Web Development",
+    tech: ["Laravel", "PHP", "MySQL", "Chart.js", "Bootstrap"],
     description:
       "Sistem monitoring kualitas air laut & sungai untuk Dinas Lingkungan Hidup Provinsi Kalimantan Selatan, sudah live dan bisa diakses publik.",
     image: "/projects/alforiver.jpg",
@@ -61,7 +63,8 @@ const PROJECTS = [
   },
   {
     title: "UI/UX Design · Figma",
-    tag: "Product Design · Figma",
+    category: "UI/UX Design",
+    tech: ["Figma", "Prototyping", "UI Design", "Design System"],
     description:
       "Rancangan antarmuka aplikasi & website yang dipublikasikan sebagai prototype Figma, jadi siapa pun bisa membuka dan mencobanya langsung.",
     image: "/projects/figma.jpg",
@@ -520,71 +523,23 @@ export default function PortfolioMinimal() {
       </section>
 
       <section id="portofolio" className="max-w-6xl mx-auto px-5 sm:px-8 py-10 sm:py-14">
-        <Reveal>
-          <span className="inline-block text-[11px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-black/40 mb-3">
-            Portofolio
-          </span>
-          <h2 className="font-display text-2xl sm:text-4xl font-semibold">
-            Project <span className="italic-display font-normal">terpilih</span>
+        <Reveal className="text-center mb-9 sm:mb-12">
+          <h2 className="font-display text-3xl sm:text-5xl font-semibold">
+            Project
           </h2>
-          <p className="text-black/55 text-sm sm:text-base mt-3 max-w-lg">
-            Beberapa web yang saya bangun dan rancang — dari aplikasi live,
-            desain UI/UX, sampai desain grafis.
-          </p>
+          <span className="block mx-auto mt-3 h-1 w-12 rounded-full bg-lime-400" />
         </Reveal>
 
-        <div className="grid sm:grid-cols-2 gap-5 sm:gap-6 mt-8">
-          {PROJECTS.map((p, i) => (
-            <Reveal key={p.title} delay={i * 90}>
-              <a
-                href={p.href}
-                target="_blank"
-                rel="noreferrer"
-                className="group block"
-              >
-                <div className="relative rounded-2xl overflow-hidden aspect-[4/3] bg-black/5">
-                  <img
-                    src={p.image}
-                    alt={p.title}
-                    className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500"
-                  />
-                  <div className="absolute top-3 right-3 h-9 w-9 rounded-full bg-white/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                    <ArrowUpRight size={16} />
-                  </div>
-                </div>
-                <div className="mt-3 flex items-center justify-between gap-3">
-                  <h3 className="font-display font-medium text-base sm:text-lg">{p.title}</h3>
-                  <span className="shrink-0 inline-flex items-center gap-1 text-xs font-semibold text-black/60 group-hover:text-black transition-colors">
-                    {p.cta} <ArrowUpRight size={13} />
-                  </span>
-                </div>
-                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-lime-500 mt-1">
-                  {p.tag}
-                </p>
-                <p className="text-sm text-black/50 mt-2 leading-relaxed">{p.description}</p>
-              </a>
-            </Reveal>
-          ))}
-        </div>
+        <Reveal>
+          <ProjectsGrid items={PROJECTS} />
+        </Reveal>
 
-        <Reveal className="mt-14 sm:mt-20">
-          <div className="flex items-end justify-between gap-4 mb-5 sm:mb-6">
-            <div>
-              <h3 className="font-display text-xl sm:text-2xl font-semibold">
-                Galeri <span className="italic-display font-normal">design</span>
-              </h3>
-              <p className="text-sm text-black/50 mt-1">
-                Geser untuk melihat karya desain lainnya.
-              </p>
-            </div>
-            <a
-              href={FIGMA_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full border border-black/15 text-black/70 hover:border-black/40 hover:text-black transition-colors"
-            >
-              Lihat semua di Figma <ArrowUpRight size={13} />
-            </a>
+        <Reveal className="mt-16 sm:mt-24">
+          <div className="text-center mb-9 sm:mb-12">
+            <h3 className="font-display text-3xl sm:text-5xl font-semibold">
+              Design <span className="italic-display font-normal">Showcase</span>
+            </h3>
+            <span className="block mx-auto mt-3 h-1 w-12 rounded-full bg-lime-400" />
           </div>
           <Carousel items={DESIGN_SHOWCASE} />
         </Reveal>
