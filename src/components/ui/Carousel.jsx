@@ -57,7 +57,7 @@ export function Carousel({ items }) {
   };
 
   return (
-    <div className="relative rounded-3xl bg-[#0e1a2b] overflow-hidden select-none">
+    <div className="relative rounded-3xl overflow-hidden select-none">
       <motion.div
         className="relative mx-auto h-[380px] sm:h-[520px] cursor-grab active:cursor-grabbing"
         style={{ perspective: 1400 }}
@@ -80,7 +80,7 @@ export function Carousel({ items }) {
               aria-label={item.title}
               aria-hidden={Math.abs(offset) > 2}
               tabIndex={isCenter ? 0 : -1}
-              className="absolute left-1/2 top-1/2 w-[190px] sm:w-[280px] aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.6)] ring-1 ring-white/10"
+              className="absolute left-1/2 top-1/2 w-[190px] sm:w-[280px] aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.35)] ring-1 ring-black/5"
               initial={false}
               animate={styleFor(offset)}
               transition={{ type: "spring", stiffness: 260, damping: 30 }}
@@ -97,19 +97,14 @@ export function Carousel({ items }) {
         })}
       </motion.div>
 
-      <div className="relative pb-8 sm:pb-10 -mt-2 text-center">
-        <p className="font-cantry text-lg sm:text-2xl text-white">{items[active].title}</p>
-        <p className="text-[11px] sm:text-xs font-medium uppercase tracking-[0.18em] text-lime-300/90 mt-1">
-          {items[active].tag}
-        </p>
-
-        <div className="flex flex-col items-center gap-1 mt-5 text-white/40">
+      <div className="relative pb-8 sm:pb-10 text-center">
+        <div className="flex flex-col items-center gap-1 text-black/40">
           <span className="text-[11px] tabular-nums tracking-widest">
             {String(active + 1).padStart(2, "0")} / {String(count).padStart(2, "0")}
           </span>
-          <div className="h-6 w-4 rounded-full border border-white/30 flex justify-center pt-1.5">
+          <div className="h-6 w-4 rounded-full border border-black/25 flex justify-center pt-1.5">
             <motion.span
-              className="h-1.5 w-0.5 rounded-full bg-white/60"
+              className="h-1.5 w-0.5 rounded-full bg-black/50"
               animate={{ y: [0, 4, 0], opacity: [1, 0.3, 1] }}
               transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
             />
