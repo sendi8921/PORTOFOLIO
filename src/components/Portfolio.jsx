@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SmoothCursor } from "./ui/SmoothCursor";
+import { Carousel } from "./ui/Carousel";
+import { ProjectsGrid } from "./ui/ProjectsGrid";
 import {
-  ArrowUpRight, MapPin, Mail
+  MapPin, Mail
 } from "lucide-react";
 
 function BrandIcon({ path, size = 17, ...props }) {
@@ -45,31 +47,38 @@ const PROFILE = {
   email: "sendipratama302@gmail.com",
 };
 
-const WORKS = [
+// Ganti dengan link prototype/file Figma yang sudah dipublikasikan (Share → Anyone with the link).
+const FIGMA_URL = "https://www.figma.com/@sendipratama";
+
+const PROJECTS = [
   {
-    title: "Sistem Monitoring Kualitas Air",
-    tag: "Web App · Laravel",
-    image:
-      "https://images.unsplash.com/photo-1621504450181-5d356f61d307?auto=format&fit=crop&w=900&q=80",
+    title: "AL-FORIVER · Monitoring Kualitas Air",
+    category: "Web Development",
+    tech: ["Laravel", "PHP", "MySQL", "Chart.js", "Bootstrap"],
+    description:
+      "Sistem monitoring kualitas air laut & sungai untuk Dinas Lingkungan Hidup Provinsi Kalimantan Selatan, sudah live dan bisa diakses publik.",
+    image: "/projects/alforiver.jpg",
+    href: "https://alforiver.kalselprov.go.id/",
+    cta: "Kunjungi situs",
   },
   {
-    title: "Klasifikasi & Clustering Kualitas Air",
-    tag: "Machine Learning · Streamlit",
-    image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80",
+    title: "UI/UX Design · Figma",
+    category: "UI/UX Design",
+    tech: ["Figma", "Prototyping", "UI Design", "Design System"],
+    description:
+      "Rancangan antarmuka aplikasi & website yang dipublikasikan sebagai prototype Figma, jadi siapa pun bisa membuka dan mencobanya langsung.",
+    image: "/projects/figma.jpg",
+    href: FIGMA_URL,
+    cta: "Buka di Figma",
   },
-  {
-    title: "DNA Phenotyping Visualizer",
-    tag: "Experiment · Three.js",
-    image:
-      "https://images.unsplash.com/photo-1628595351029-c2bf17511435?auto=format&fit=crop&w=900&q=80",
-  },
-  {
-    title: "Asisten AI ala Jarvis",
-    tag: "Prototype · Python",
-    image:
-      "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=900&q=80",
-  },
+];
+
+const DESIGN_SHOWCASE = [
+  { src: "/designs/poster-sunset.jpg", title: "Sunset — Streetwear Poster", tag: "Poster / Graphic Design" },
+  { src: "/designs/design-1.jpg", title: "Wellness App UI Kit", tag: "UI/UX · Mobile App" },
+  { src: "/designs/design-3.jpg", title: "Water Quality Monitoring App", tag: "UI/UX · Mobile App" },
+  { src: "/designs/design-2.jpg", title: "SaaS Landing Page", tag: "UI/UX · Web Design" },
+  { src: "/designs/design-4.jpg", title: "Design System", tag: "Branding & UI" },
 ];
 
 const SOCIALS = [
@@ -513,34 +522,27 @@ export default function PortfolioMinimal() {
         </div>
       </section>
 
-      <section id="work" className="max-w-5xl mx-auto px-5 sm:px-8 py-10 sm:py-14">
-        <Reveal>
-          <h2 className="font-display text-2xl sm:text-4xl font-semibold mb-6 sm:mb-8">
-            Karya <span className="italic-display font-normal">Pilihan</span>
+      <section id="portofolio" className="max-w-6xl mx-auto px-5 sm:px-8 py-10 sm:py-14">
+        <Reveal className="text-center mb-9 sm:mb-12">
+          <h2 className="font-display text-3xl sm:text-5xl font-semibold">
+            Project
           </h2>
+          <span className="block mx-auto mt-3 h-1 w-12 rounded-full bg-lime-400" />
         </Reveal>
-        <div className="grid sm:grid-cols-2 gap-5 sm:gap-6">
-          {WORKS.map((w, i) => (
-            <Reveal key={w.title} delay={i * 90}>
-              <a href="#" className="group block">
-                <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
-                  <img
-                    src={w.image}
-                    alt={w.title}
-                    className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500"
-                  />
-                  <div className="absolute top-3 right-3 h-9 w-9 rounded-full bg-white/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                    <ArrowUpRight size={16} />
-                  </div>
-                </div>
-                <div className="mt-3 flex items-center justify-between gap-2">
-                  <h3 className="font-display font-medium text-base sm:text-lg">{w.title}</h3>
-                </div>
-                <p className="text-sm text-black/45 mt-0.5">{w.tag}</p>
-              </a>
-            </Reveal>
-          ))}
-        </div>
+
+        <Reveal>
+          <ProjectsGrid items={PROJECTS} />
+        </Reveal>
+
+        <Reveal className="mt-16 sm:mt-24">
+          <div className="text-center mb-9 sm:mb-12">
+            <h3 className="font-display text-3xl sm:text-5xl font-semibold">
+              Design <span className="italic-display font-normal">Showcase</span>
+            </h3>
+            <span className="block mx-auto mt-3 h-1 w-12 rounded-full bg-lime-400" />
+          </div>
+          <Carousel items={DESIGN_SHOWCASE} />
+        </Reveal>
       </section>
 
       <section id="about" className="max-w-5xl mx-auto px-5 sm:px-8 py-10 sm:py-14 border-t border-black/5">
