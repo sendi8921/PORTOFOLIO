@@ -71,9 +71,10 @@ const PROJECTS = [
 ];
 
 const DESIGN_SHOWCASE = [
-  { src: "/designs/design-1.jpg", title: "Wellness App UI Kit", tag: "Mobile App" },
-  { src: "/designs/design-3.jpg", title: "Water Quality Monitoring App", tag: "Mobile App" },
-  { src: "/designs/design-2.jpg", title: "SaaS Landing Page", tag: "Web Design" },
+  { src: "/designs/poster-sunset.jpg", title: "Sunset — Streetwear Poster", tag: "Poster / Graphic Design" },
+  { src: "/designs/design-1.jpg", title: "Wellness App UI Kit", tag: "UI/UX · Mobile App" },
+  { src: "/designs/design-3.jpg", title: "Water Quality Monitoring App", tag: "UI/UX · Mobile App" },
+  { src: "/designs/design-2.jpg", title: "SaaS Landing Page", tag: "UI/UX · Web Design" },
   { src: "/designs/design-4.jpg", title: "Design System", tag: "Branding & UI" },
 ];
 
@@ -527,8 +528,8 @@ export default function PortfolioMinimal() {
             Project <span className="italic-display font-normal">terpilih</span>
           </h2>
           <p className="text-black/55 text-sm sm:text-base mt-3 max-w-lg">
-            Beberapa web yang saya bangun dan rancang — dari aplikasi live sampai
-            desain UI/UX yang bisa langsung dibuka dan dicoba siapa saja.
+            Beberapa web yang saya bangun dan rancang — dari aplikasi live,
+            desain UI/UX, sampai desain grafis.
           </p>
         </Reveal>
 
