@@ -76,7 +76,14 @@ const WORKFLOW = [
 
 
 // Ganti dengan link prototype/file Figma yang sudah dipublikasikan (Share → Anyone with the link).
-const FIGMA_URL = "https://www.figma.com/@sendipratama";
+const FIGMA_URL =
+  "https://www.figma.com/proto/Inllw47xGLXlhjLDxrWTkY/One-Stop?node-id=0-1";
+
+// Untuk menampilkan animasi & transisi, pakai link prototype (Share → Copy prototype link),
+// lalu ubah domainnya jadi embed.figma.com, contoh:
+// https://embed.figma.com/proto/<id>/<nama>?node-id=<frame-awal>&embed-host=share
+const FIGMA_EMBED_URL =
+  "https://embed.figma.com/proto/Inllw47xGLXlhjLDxrWTkY/One-Stop?node-id=0-1&scaling=scale-down&content-scaling=fixed&embed-host=share";
 
 const PROJECTS = [
   {
@@ -569,6 +576,40 @@ export default function PortfolioMinimal() {
             <span className="block mx-auto mt-3 h-1 w-12 rounded-full bg-lime-400" />
           </div>
           <Carousel items={DESIGN_SHOWCASE} />
+        </Reveal>
+      </section>
+
+      <section id="prototype" className="max-w-5xl mx-auto px-5 sm:px-8 py-12 sm:py-16 border-t border-black/5">
+        <Reveal className="mb-7 sm:mb-9">
+          <span className="inline-block text-[11px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-black/40 mb-4">
+            Figma
+          </span>
+          <h2 className="font-display text-3xl sm:text-5xl font-semibold leading-[1.05]">
+            Prototype Interaktif
+          </h2>
+          <p className="text-black/60 leading-relaxed text-sm sm:text-base mt-4 max-w-2xl">
+            Coba langsung desainnya di sini — klik antar layar untuk melihat alur
+            dan transisinya berjalan.
+          </p>
+        </Reveal>
+
+        <Reveal>
+          <div className="rounded-2xl overflow-hidden border border-black/10 bg-black/[0.03]">
+            <iframe
+              src={FIGMA_EMBED_URL}
+              title="Prototype Figma"
+              className="w-full h-[420px] sm:h-[560px] block"
+              allowFullScreen
+            />
+          </div>
+          <a
+            href={FIGMA_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1.5 mt-5 text-sm font-semibold px-4 py-2 rounded-full bg-lime-300 text-black"
+          >
+            Buka di Figma
+          </a>
         </Reveal>
       </section>
 
