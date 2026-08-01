@@ -77,13 +77,13 @@ const WORKFLOW = [
 
 // Ganti dengan link prototype/file Figma yang sudah dipublikasikan (Share → Anyone with the link).
 const FIGMA_URL =
-  "https://www.figma.com/design/Inllw47xGLXlhjLDxrWTkY/One-Stop?node-id=0-1";
+  "https://www.figma.com/proto/Inllw47xGLXlhjLDxrWTkY/One-Stop?node-id=0-1";
 
 // Untuk menampilkan animasi & transisi, pakai link prototype (Share → Copy prototype link),
 // lalu ubah domainnya jadi embed.figma.com, contoh:
 // https://embed.figma.com/proto/<id>/<nama>?node-id=<frame-awal>&embed-host=share
 const FIGMA_EMBED_URL =
-  "https://embed.figma.com/design/Inllw47xGLXlhjLDxrWTkY/One-Stop?node-id=0-1&embed-host=share";
+  "https://embed.figma.com/proto/Inllw47xGLXlhjLDxrWTkY/One-Stop?node-id=0-1&scaling=scale-down&content-scaling=fixed&embed-host=share";
 
 const PROJECTS = [
   {
