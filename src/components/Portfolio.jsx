@@ -47,6 +47,37 @@ const PROFILE = {
   email: "sendipratama302@gmail.com",
 };
 
+const TIMELINE = [
+  {
+    period: "2025 — Sekarang",
+    title: "Skripsi · Sistem Monitoring Kualitas Air Laut",
+    place: "Dinas Lingkungan Hidup Provinsi Kalimantan Selatan",
+    description:
+      "Merancang dan membangun sistem monitoring kualitas air laut berbasis web, mulai dari perancangan database, antarmuka, sampai penyajian data agar mudah dibaca petugas maupun masyarakat.",
+  },
+  {
+    period: "2024 — 2025",
+    title: "Web Developer · ALFO RIVER",
+    place: "alforiver.kalselprov.go.id",
+    description:
+      "Mengembangkan layanan informasi kondisi air sungai berbasis Laravel & MySQL yang dipakai masyarakat dan pemangku kepentingan untuk mengakses data secara terbuka.",
+  },
+  {
+    period: "2024 — Sekarang",
+    title: "UI/UX Designer · Freelance & Personal Project",
+    place: "Figma",
+    description:
+      "Merancang antarmuka aplikasi dan website lengkap dengan design system serta prototype interaktif yang bisa dicoba langsung.",
+  },
+  {
+    period: "2022 — Sekarang",
+    title: "S1 Teknik Informatika",
+    place: "Universitas Islam Kalimantan (UNISKA) Banjarmasin",
+    description:
+      "Memperdalam rekayasa perangkat lunak, basis data, dan machine learning — dengan fokus praktik di Laravel, Python, dan Streamlit.",
+  },
+];
+
 // Ganti dengan link prototype/file Figma yang sudah dipublikasikan (Share → Anyone with the link).
 const FIGMA_URL = "https://www.figma.com/@sendipratama";
 
@@ -545,24 +576,41 @@ export default function PortfolioMinimal() {
         </Reveal>
       </section>
 
-      <section id="about" className="max-w-5xl mx-auto px-5 sm:px-8 py-10 sm:py-14 border-t border-black/5">
-        <Reveal className="grid md:grid-cols-2 gap-6 sm:gap-8">
-          <h2 className="font-display text-2xl sm:text-4xl font-semibold">
-            Tentang <span className="italic-display font-normal">Saya</span>
+      <section id="perjalanan" className="max-w-5xl mx-auto px-5 sm:px-8 py-12 sm:py-16 border-t border-black/5">
+        <Reveal className="mb-9 sm:mb-12">
+          <span className="inline-block text-[11px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-black/40 mb-4">
+            Perjalanan
+          </span>
+          <h2 className="font-display text-3xl sm:text-5xl font-semibold leading-[1.05]">
+            Pengalaman &amp;{" "}
+            <span className="italic-display font-normal">Pendidikan</span>
           </h2>
-          <div className="text-black/60 leading-relaxed space-y-4 text-sm sm:text-base">
-            <p>
-              Mahasiswa Teknik Informatika di UNISKA Banjarmasin, sedang
-              menyelesaikan skripsi tentang sistem monitoring kualitas air
-              laut berbasis web untuk Dinas Lingkungan Hidup Provinsi
-              Kalimantan Selatan.
-            </p>
-            <p>
-              Fokus utama saya ada di Laravel untuk web development, serta
-              Python dan Streamlit untuk eksplorasi machine learning.
-            </p>
-          </div>
         </Reveal>
+
+        <div className="relative pl-6 sm:pl-8">
+          <span className="absolute left-[3px] sm:left-[5px] top-2 bottom-2 w-px bg-black/10" />
+          <div className="space-y-9 sm:space-y-12">
+            {TIMELINE.map((item, i) => (
+              <Reveal key={item.title} delay={i * 70}>
+                <div className="relative">
+                  <span className="absolute -left-6 sm:-left-8 top-1.5 h-[11px] w-[11px] rounded-full bg-lime-300 border-2 border-white ring-1 ring-black/10" />
+                  <span className="block text-[11px] sm:text-xs font-semibold tracking-[0.14em] uppercase text-black/40">
+                    {item.period}
+                  </span>
+                  <h3 className="font-display text-xl sm:text-2xl font-semibold mt-1.5">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm font-medium text-black/50 mt-1">
+                    {item.place}
+                  </p>
+                  <p className="text-black/60 leading-relaxed text-sm sm:text-base mt-3 max-w-2xl">
+                    {item.description}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
       </section>
 
       <section
