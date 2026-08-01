@@ -96,7 +96,7 @@ const PROJECTS = [
     tech: ["Figma", "Prototyping", "UI Design", "Design System"],
     description:
       "Desain website toko sepeda dengan halaman Home, Bikes, Parts, Equipment, About, dan Contact. Bergaya bold dengan aksen kuning dan tekstur gelap, lengkap dengan prototype interaktif di Figma.",
-    image: "/projects/figma.jpg",
+    image: "/projects/onestop.jpg",
     href: FIGMA_URL,
     cta: "Buka di Figma",
   },
@@ -489,7 +489,7 @@ export default function PortfolioMinimal() {
           </p>
         </div>
 
-        <div className="absolute bottom-25 left-5 right-5 sm:bottom-50 sm:left-10 sm:right-auto sm:max-w-xl">
+        <div className="absolute bottom-40 left-5 right-5 sm:bottom-50 sm:left-10 sm:right-auto sm:max-w-xl">
           <div className="mb-3 sm:mb-4 flex items-center gap-2.5">
             <span className="h-1.5 w-1.5 rounded-full bg-lime-300 shadow-[0_0_10px_2px_rgba(190,242,100,0.7)]" />
             <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-[0.16em] sm:tracking-[0.18em] text-white/85 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
@@ -499,16 +499,9 @@ export default function PortfolioMinimal() {
 
           <h1 className="font-cantry text-white font-semibold leading-[1.1] text-2xl sm:text-3xl md:text-4xl drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)] break-words">
             Saya Sendi Pratama merancang dan{" "}
-            <span className="text-lime-300">membangun web</span> dari{" "}
-            Banjarbaru, Indonesia.
+            <span className="">membangun web</span> dari{" "}
+            <span className="whitespace-nowrap">Banjarbaru, Indonesia.</span>
           </h1>
-
-          <p className="font-cantry mt-4 sm:mt-5 text-white/90 text-sm leading-relaxed max-w-sm drop-shadow-[0_1px_6px_rgba(0,0,0,0.9)]">
-            Ngoding{" "}
-            <span className="font-medium text-white">aplikasi web</span> &amp;{" "}
-            <span className="font-medium text-white">machine learning</span>.
-            Kenali saya <span className="font-medium text-white">lebih dekat</span>.
-          </p>
         </div>
       </section>
 
