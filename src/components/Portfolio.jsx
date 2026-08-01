@@ -52,11 +52,11 @@ const FIGMA_URL = "https://www.figma.com/@sendipratama";
 
 const PROJECTS = [
   {
-    title: "AL-FORIVER · Monitoring Kualitas Air",
+    title: "ALFO RIVER - Akses Layanan Informasi Air Sungai Reliable, Informative, Valid, Easy, Responsible",
     category: "Web Development",
-    tech: ["Laravel", "PHP", "MySQL", "Chart.js", "Bootstrap"],
+    tech: ["Laravel", "PHP", "MySQL", "Bootstrap"],
     description:
-      "Sistem monitoring kualitas air laut & sungai untuk Dinas Lingkungan Hidup Provinsi Kalimantan Selatan, sudah live dan bisa diakses publik.",
+      "Alfo River adalah inovasi layanan informasi sungai yang menyediakan data terkait kondisi air secara mudah diakses oleh masyarakat dan pemangku kepentingan.",
     image: "/projects/alforiver.jpg",
     href: "https://alforiver.kalselprov.go.id/",
     cta: "Kunjungi situs",
@@ -74,11 +74,11 @@ const PROJECTS = [
 ];
 
 const DESIGN_SHOWCASE = [
-  { src: "/designs/poster-sunset.jpg", title: "Sunset — Streetwear Poster", tag: "Poster / Graphic Design" },
-  { src: "/designs/design-1.jpg", title: "Wellness App UI Kit", tag: "UI/UX · Mobile App" },
-  { src: "/designs/design-3.jpg", title: "Water Quality Monitoring App", tag: "UI/UX · Mobile App" },
-  { src: "/designs/design-2.jpg", title: "SaaS Landing Page", tag: "UI/UX · Web Design" },
-  { src: "/designs/design-4.jpg", title: "Design System", tag: "Branding & UI" },
+  { src: "/designs/RWB.png", title: "Poster Porsche Rwb", tag: "Poster / Graphic Design" },
+  { src: "/designs/NISSAN FAIRLADY.png", title: "Poster NISSAN FAIRLADY", tag: "Poster / Graphic Design" },
+  { src: "/designs/FERRARI.jpg", title: "Poster Ferrari", tag: "Poster / Graphic Design" },
+  { src: "/designs/PORSCHE.jpg", title: "Poster PORSCHE", tag: "Poster / Graphic Design" },
+  { src: "/designs/LEXUS.jpg", title: "Poster Lexus", tag: "Poster / Graphic Design" },
 ];
 
 const SOCIALS = [
