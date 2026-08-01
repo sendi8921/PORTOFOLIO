@@ -497,9 +497,8 @@ export default function PortfolioMinimal() {
             </span>
           </div>
 
-          <h1 className="font-cantry text-white font-semibold leading-[1.1] text-2xl sm:text-3xl md:text-4xl drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)] break-words">
-            Saya Sendi Pratama merancang dan{" "}
-            <span className="">membangun web</span> dari{" "}
+          <h1 className="font-cantry text-white font-semibold leading-[1.1] text-[5vw] sm:text-3xl md:text-4xl drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)] break-words">
+            Saya Sendi Pratama merancang dan membangun web dari{" "}
             <span className="whitespace-nowrap">Banjarbaru, Indonesia.</span>
           </h1>
         </div>
