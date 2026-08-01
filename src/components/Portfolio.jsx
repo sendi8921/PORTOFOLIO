@@ -74,8 +74,8 @@ const PROJECTS = [
 ];
 
 const DESIGN_SHOWCASE = [
-  { src: "/designs/RWB.png", title: "Poster Porsche Rwb", tag: "Poster / Graphic Design" },
-  { src: "/designs/NISSAN FAIRLADY.png", title: "Poster NISSAN FAIRLADY", tag: "Poster / Graphic Design" },
+  { src: "/designs/RWB.jpg", title: "Poster Porsche Rwb", tag: "Poster / Graphic Design" },
+  { src: "/designs/NISSAN-FAIRLADY.jpg", title: "Poster NISSAN FAIRLADY", tag: "Poster / Graphic Design" },
   { src: "/designs/FERRARI.jpg", title: "Poster Ferrari", tag: "Poster / Graphic Design" },
   { src: "/designs/PORSCHE.jpg", title: "Poster PORSCHE", tag: "Poster / Graphic Design" },
   { src: "/designs/LEXUS.jpg", title: "Poster Lexus", tag: "Poster / Graphic Design" },
