@@ -97,11 +97,11 @@ const PROJECTS = [
     cta: "Kunjungi situs",
   },
   {
-    title: "UI/UX Design · Figma",
+    title: "One Stop · Website Toko Sepeda",
     category: "UI/UX Design",
     tech: ["Figma", "Prototyping", "UI Design", "Design System"],
     description:
-      "Rancangan antarmuka aplikasi & website yang dipublikasikan sebagai prototype Figma, jadi siapa pun bisa membuka dan mencobanya langsung.",
+      "Desain website toko sepeda dengan halaman Home, Bikes, Parts, Equipment, About, dan Contact. Bergaya bold dengan aksen kuning dan tekstur gelap, lengkap dengan prototype interaktif yang bisa langsung dicoba.",
     image: "/projects/figma.jpg",
     href: FIGMA_URL,
     cta: "Buka di Figma",
@@ -588,8 +588,8 @@ export default function PortfolioMinimal() {
             Prototype Interaktif
           </h2>
           <p className="text-black/60 leading-relaxed text-sm sm:text-base mt-4 max-w-2xl">
-            Coba langsung desainnya di sini — klik antar layar untuk melihat alur
-            dan transisinya berjalan.
+            Coba langsung desain website toko sepeda &quot;One Stop&quot; di sini — klik
+            menu dan tombolnya untuk melihat alur serta transisinya berjalan.
           </p>
         </Reveal>
 
