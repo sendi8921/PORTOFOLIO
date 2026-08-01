@@ -47,6 +47,34 @@ const PROFILE = {
   email: "sendipratama302@gmail.com",
 };
 
+const WORKFLOW = [
+  {
+    num: "01",
+    title: "Riset & Pemahaman Masalah",
+    description:
+      "Menggali kebutuhan pengguna dan tujuan proyek, lalu menyusun ruang lingkup yang jelas sebelum satu baris kode ditulis.",
+  },
+  {
+    num: "02",
+    title: "Rancang Alur & Antarmuka",
+    description:
+      "Membuat alur pengguna, wireframe, dan prototype di Figma agar tampilan dan navigasi bisa diuji lebih dulu sebelum dibangun.",
+  },
+  {
+    num: "03",
+    title: "Bangun & Integrasi",
+    description:
+      "Mengimplementasikan antarmuka dan logika di Laravel atau Python, dengan struktur database yang rapi dan kode yang mudah dirawat.",
+  },
+  {
+    num: "04",
+    title: "Uji & Serah Terima",
+    description:
+      "Menguji tiap fitur di berbagai ukuran layar, memperbaiki temuan, lalu menyerahkan hasil beserta dokumentasi penggunaannya.",
+  },
+];
+
+
 // Ganti dengan link prototype/file Figma yang sudah dipublikasikan (Share → Anyone with the link).
 const FIGMA_URL = "https://www.figma.com/@sendipratama";
 
@@ -431,7 +459,6 @@ export default function PortfolioMinimal() {
 
         .font-sans { font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif; }
         .font-display { font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif; letter-spacing: -0.01em; }
-        .italic-display { font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif; font-style: italic; }
         .font-cantry { font-family: 'Cantry', 'Manrope', ui-sans-serif, system-ui, sans-serif; letter-spacing: -0.015em; }
         html { scroll-behavior: smooth; }
         @media (min-width: 768px) {
@@ -537,7 +564,7 @@ export default function PortfolioMinimal() {
         <Reveal className="mt-16 sm:mt-24">
           <div className="text-center mb-9 sm:mb-12">
             <h3 className="font-display text-3xl sm:text-5xl font-semibold">
-              Design <span className="italic-display font-normal">Showcase</span>
+              Design Showcase
             </h3>
             <span className="block mx-auto mt-3 h-1 w-12 rounded-full bg-lime-400" />
           </div>
@@ -545,24 +572,35 @@ export default function PortfolioMinimal() {
         </Reveal>
       </section>
 
-      <section id="about" className="max-w-5xl mx-auto px-5 sm:px-8 py-10 sm:py-14 border-t border-black/5">
-        <Reveal className="grid md:grid-cols-2 gap-6 sm:gap-8">
-          <h2 className="font-display text-2xl sm:text-4xl font-semibold">
-            Tentang <span className="italic-display font-normal">Saya</span>
+      <section id="cara-kerja" className="max-w-5xl mx-auto px-5 sm:px-8 py-12 sm:py-16 border-t border-black/5">
+        <Reveal className="mb-9 sm:mb-12">
+          <span className="inline-block text-[11px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-black/40 mb-4">
+            Proses
+          </span>
+          <h2 className="font-display text-3xl sm:text-5xl font-semibold leading-[1.05]">
+            Cara Saya Bekerja
           </h2>
-          <div className="text-black/60 leading-relaxed space-y-4 text-sm sm:text-base">
-            <p>
-              Mahasiswa Teknik Informatika di UNISKA Banjarmasin, sedang
-              menyelesaikan skripsi tentang sistem monitoring kualitas air
-              laut berbasis web untuk Dinas Lingkungan Hidup Provinsi
-              Kalimantan Selatan.
-            </p>
-            <p>
-              Fokus utama saya ada di Laravel untuk web development, serta
-              Python dan Streamlit untuk eksplorasi machine learning.
-            </p>
-          </div>
         </Reveal>
+
+        <div className="grid sm:grid-cols-2 gap-x-10 gap-y-9 sm:gap-y-12">
+          {WORKFLOW.map((step, i) => (
+            <Reveal key={step.num} delay={i * 70}>
+              <div className="flex items-start gap-4">
+                <span className="font-display text-3xl font-semibold text-lime-300 shrink-0 tabular-nums leading-none">
+                  {step.num}
+                </span>
+                <div className="flex-1 min-w-0">
+                  <h3 className="font-display text-xl sm:text-2xl font-semibold">
+                    {step.title}
+                  </h3>
+                  <p className="text-black/60 leading-relaxed text-sm sm:text-base mt-2">
+                    {step.description}
+                  </p>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </section>
 
       <section
@@ -617,7 +655,7 @@ export default function PortfolioMinimal() {
               className="font-display font-semibold leading-[0.95] break-words"
               style={{ fontSize: "clamp(2.25rem, 12vw, 4.5rem)" }}
             >
-              Yuk, <span className="italic-display font-normal">ngobrol</span>
+              Yuk, ngobrol
             </h2>
           </Reveal>
 
