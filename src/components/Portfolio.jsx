@@ -336,7 +336,17 @@ const dockRingVariants = {
 
 function SocialDock() {
   const [hovered, setHovered] = useState(false);
+  const [isTouch, setIsTouch] = useState(false);
   const leaveTimer = useRef(null);
+  const active = hovered || isTouch;
+
+  useEffect(() => {
+    const mq = window.matchMedia("(hover: none)");
+    const update = () => setIsTouch(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
 
   const handleEnter = () => {
     if (leaveTimer.current) {
@@ -394,7 +404,7 @@ function SocialDock() {
         onMouseLeave={handleLeave}
       >
         <AnimatePresence>
-          {hovered && (
+          {active && (
             <motion.div
               key="chasing-glow"
               variants={dockGlowVariants}
@@ -407,7 +417,7 @@ function SocialDock() {
         </AnimatePresence>
 
         <AnimatePresence>
-          {hovered && (
+          {active && (
             <motion.div
               key="chasing-ring"
               variants={dockRingVariants}
