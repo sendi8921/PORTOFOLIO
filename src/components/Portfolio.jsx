@@ -341,11 +341,16 @@ function SocialDock() {
   const active = hovered || isTouch;
 
   useEffect(() => {
-    const mq = window.matchMedia("(hover: none)");
-    const update = () => setIsTouch(mq.matches);
+    const mq = window.matchMedia("(hover: none), (pointer: coarse)");
+    const update = () =>
+      setIsTouch(mq.matches || navigator.maxTouchPoints > 0);
     update();
     mq.addEventListener("change", update);
-    return () => mq.removeEventListener("change", update);
+    window.addEventListener("touchstart", update, { once: true });
+    return () => {
+      mq.removeEventListener("change", update);
+      window.removeEventListener("touchstart", update);
+    };
   }, []);
 
   const handleEnter = () => {
