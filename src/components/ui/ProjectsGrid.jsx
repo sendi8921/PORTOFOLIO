@@ -37,7 +37,7 @@ export function ProjectsGrid({ items }) {
         })}
       </div>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
         <AnimatePresence mode="popLayout">
           {shown.map((p) => (
             <motion.a
@@ -60,14 +60,14 @@ export function ProjectsGrid({ items }) {
 
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/10 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-400" />
 
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-5 sm:px-6 text-white sm:translate-y-4 sm:opacity-0 sm:group-hover:translate-y-0 sm:group-hover:opacity-100 transition-all duration-400">
-                <h3 className="font-display text-xl sm:text-2xl font-semibold leading-snug">
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-3 sm:px-6 text-white sm:translate-y-4 sm:opacity-0 sm:group-hover:translate-y-0 sm:group-hover:opacity-100 transition-all duration-400">
+                <h3 className="font-display text-sm sm:text-2xl font-semibold leading-snug">
                   {p.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-white/70 mt-3 leading-relaxed max-w-[90%]">
+                <p className="hidden sm:block text-xs sm:text-sm text-white/70 mt-3 leading-relaxed max-w-[90%]">
                   {p.description}
                 </p>
-                <div className="flex flex-wrap justify-center gap-1.5 mt-4">
+                <div className="hidden sm:flex flex-wrap justify-center gap-1.5 mt-4">
                   {p.tech.map((t) => (
                     <span
                       key={t}
@@ -79,7 +79,7 @@ export function ProjectsGrid({ items }) {
                 </div>
               </div>
 
-              <span className="absolute bottom-5 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 text-sm font-semibold text-lime-300 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-400 delay-75">
+              <span className="absolute bottom-3 sm:bottom-5 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-lime-300 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-400 delay-75">
                 {p.cta} <ArrowUpRight size={15} />
               </span>
             </motion.a>
