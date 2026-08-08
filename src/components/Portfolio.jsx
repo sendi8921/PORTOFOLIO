@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { SmoothCursor } from "./ui/SmoothCursor";
 import { Carousel } from "./ui/Carousel";
 import { ProjectsGrid } from "./ui/ProjectsGrid";
@@ -455,6 +455,10 @@ function SocialDock() {
 }
 
 export default function PortfolioMinimal() {
+  // Parallax: map scroll to vertical movement of background image
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 600], ["0%", "8%"]);
+
   return (
     <div
       className="min-h-screen w-full overflow-x-clip bg-[#F5F3EF] text-[#141414] font-sans"
@@ -489,9 +493,10 @@ export default function PortfolioMinimal() {
         style={{ height: "100svh", minHeight: "560px", maxHeight: "900px" }}
       >
         <SocialDock />
-        <img
+        <motion.img
           src={PROFILE.photo}
           alt={PROFILE.name}
+          style={{ y }}
           className="absolute inset-0 w-full h-full object-cover object-center grayscale opacity-90"
         />
         <div className="absolute inset-0 bg-black/25" />
@@ -512,10 +517,15 @@ export default function PortfolioMinimal() {
             </span>
           </div>
 
-          <h1 className="font-cantry text-white font-semibold leading-[1.1] text-[5vw] sm:text-3xl md:text-4xl drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)] break-words">
+          <motion.h1
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
+            className="font-cantry text-white font-semibold leading-[1.1] text-[5vw] sm:text-3xl md:text-4xl drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)] break-words"
+          >
             Saya Sendi Pratama merancang dan membangun web dari{" "}
             <span className="whitespace-nowrap">Banjarbaru, Indonesia.</span>
-          </h1>
+          </motion.h1>
         </div>
       </section>
 
