@@ -39,14 +39,16 @@ export function ProjectsGrid({ items }) {
 
       <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
         <AnimatePresence mode="popLayout">
-          {shown.map((p) => (
+          {shown.map((p, i) => (
             <motion.a
               key={p.title}
               layout
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.96 }}
-              transition={{ duration: 0.35, ease: "easeOut" }}
+              transition={{ duration: 0.35, ease: "easeOut", delay: i * 0.08 }}
+              whileHover={{ y: -6, scale: 1.01 }}
+              whileTap={{ scale: 0.98 }}
               href={p.href}
               target="_blank"
               rel="noreferrer"
@@ -55,7 +57,7 @@ export function ProjectsGrid({ items }) {
               <img
                 src={p.image}
                 alt={p.title}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 will-change-transform"
               />
 
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/10 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-400" />
