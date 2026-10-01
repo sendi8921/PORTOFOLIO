@@ -80,10 +80,10 @@ const DESIGN_SHOWCASE = [
 
 const SOCIALS = [
   { icon: "gmail", href: "mailto:sendipratama302@gmail.com", label: "Gmail" },
-  { icon: "github", href: "https://github.com/sendi8921", label: "GitHub" },
-  { icon: "linkedin", href: "https://www.linkedin.com/in/sendi-pratama/", label: "LinkedIn" },
+  { icon: "github", href: "https://github.com/sendi34", label: "GitHub" },
+  { icon: "linkedin", href: "https://www.linkedin.com/in/sendi-pratama-285959422/", label: "LinkedIn" },
   { icon: "whatsapp", href: "https://wa.me/6287817640992", label: "WhatsApp" },
-  { icon: "instagram", href: "https://instagram.com/", label: "Instagram" },
+  { icon: "instagram", href: "https://www.instagram.com/sendi_pratama00/", label: "Instagram" },
 ];
 
 const SKILL_GROUPS = [
