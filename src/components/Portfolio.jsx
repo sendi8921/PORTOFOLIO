@@ -1,5 +1,5 @@
 import React from "react";
-import { Download, ExternalLink, Github, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import { Download, ExternalLink, Mail, MapPin, Phone } from "lucide-react";
 
 const PROFILE = {
   name: "Sendi Pratama",
@@ -106,8 +106,8 @@ const PROJECTS = [
 ];
 
 const SOCIALS = [
-  { label: "GitHub", href: "https://github.com/sendi8921", icon: Github },
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/sendi-pratama/", icon: Linkedin },
+  { label: "GitHub", href: "https://github.com/sendi8921" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/sendi-pratama/" },
   { label: "WhatsApp", href: "https://wa.me/6287817640992", icon: Phone },
 ];
 
@@ -155,7 +155,7 @@ export default function Portfolio() {
                 rel="noreferrer"
                 className="inline-flex items-center gap-1.5 text-black/70 hover:text-black"
               >
-                <Icon size={15} /> {label}
+                {Icon ? <Icon size={15} /> : <ExternalLink size={14} />} {label}
               </a>
             ))}
           </div>
